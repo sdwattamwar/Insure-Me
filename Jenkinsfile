@@ -28,7 +28,8 @@ pipeline {
       steps {
         echo 'Create a Docker Image'
 	sh 'docker --version'
-        sh 'docker build -t sdwattamwar/insureme:1.0 .'            }
+        sh 'docker build -t sdwattamwar/insureme:1.0 .'
+      	}
     }
      stage('Docker Login') {
       steps {
@@ -41,7 +42,7 @@ pipeline {
      stage('Push Docker Image') {
       steps {
         echo 'Push a Docker Image'
-        sh 'docker push cbabu85/sdwattamwar/insureme:1.0'
+        sh 'docker push /sdwattamwar/insureme:1.0'
                    }
             }
     }
