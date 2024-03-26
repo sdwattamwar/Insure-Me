@@ -28,7 +28,7 @@ pipeline {
       steps {
         echo 'Create a Docker Image'
 	sh 'docker --version'
-        sh 'docker build -t sdwattamwar/insureme:1.0'            }
+        sh 'docker build -t sdwattamwar/insureme:1.0 .'            }
     }
      stage('Docker Login') {
       steps {
