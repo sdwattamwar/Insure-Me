@@ -1,0 +1,18 @@
+- name: Configuration of Docker in GCP
+  hosts: all
+  become: true
+  connection: ssh
+  tasks:
+  - name: update the system
+    apt: update_cache=yes
+
+  - name: Installation of Docker
+    command: sudo apt-get install -y docker.io
+    become: true
+    become_user: root
+  - name: start docker service
+    command: sudo systemctl start docker
+    become: true
+    become_user: root
+  - name: Deploy image from docker hub and run the containerized application
+    command: docker run -itd -p 8084:8081 sdwattamwar/insureme:1.0
