@@ -47,6 +47,11 @@ pipeline {
         sh 'docker push sdwattamwar/insureme:1.0'
                    }
             }
+     stage('deployment using ansible'){
+	steps {
+		ansiblePlaybook credentialsId: 'ssh-to-deployment-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible-playbook', vaultTmpPath: ''
+	}
+     }
     }
 }
 
